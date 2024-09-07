@@ -10,7 +10,7 @@ namespace DiscoWorld
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Color background;
-
+        
         public DiscoWorld()
         {
             Content.RootDirectory = "Content";
@@ -31,13 +31,20 @@ namespace DiscoWorld
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            int red = gameTime.TotalGameTime.Milliseconds;
-            Console.WriteLine(red);
-            background = new Color(red, 0, 0);
+            int backgroundComponent_RED = gameTime.TotalGameTime.Minutes * 200;
+            int backgroundComponent_GREEN = gameTime.TotalGameTime.Seconds * 30;
+            int backgroundComponent_BLUE = gameTime.TotalGameTime.Milliseconds;
+
+            background = new Color(
+                backgroundComponent_RED,
+                backgroundComponent_GREEN,
+                backgroundComponent_BLUE);
+
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            //Console.Write(gameTime.ToString());
             GraphicsDevice.Clear(background);
         }
     }
