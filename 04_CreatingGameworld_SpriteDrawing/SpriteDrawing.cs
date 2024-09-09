@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using System.Diagnostics;
 using System;
 
@@ -17,8 +18,10 @@ namespace SpriteDrawing
         Color background;
         float spriteX;
         float spriteY;
+        Song mySound;
 
-     
+
+
         public SpriteDrawing()
         {
             Content.RootDirectory = "Content";
@@ -26,7 +29,6 @@ namespace SpriteDrawing
             balloonPos = Vector2.Zero;
             spriteX = 0f;
             spriteY = 0f;
-    
         }
 
         protected override void LoadContent()
@@ -34,7 +36,10 @@ namespace SpriteDrawing
             spriteBatch = new SpriteBatch(GraphicsDevice);
             balloon = Content.Load<Texture2D>("spr_lives");
 
-            //MediaPlayer.Play(Content.Load<Song>("snd_music"));
+            MediaPlayer.Play(Content.Load<Song>("snd_music"));
+            //MediaPlayer.Play(Content.Load<Song>("snd_shoot_paint"));
+            //mySound.Play();
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -45,7 +50,7 @@ namespace SpriteDrawing
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                spriteX -= 2;
+                spriteX -= 20;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
@@ -78,8 +83,6 @@ namespace SpriteDrawing
 
         protected override void Draw(GameTime gameTime)
         {
-            Console.WriteLine("test");
-            Debug.WriteLine("hello");
             GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin();
