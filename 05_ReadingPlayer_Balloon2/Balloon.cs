@@ -2,17 +2,16 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.IO;
 
 namespace Balloon
 {
+
     class Balloon : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D balloon, background;
-        Vector2 balloonPosition;
-        Vector2 balloonOriginOffset;
+        Vector2 balloonOrigin, balloonPosition;
 
         public Balloon()
         {
@@ -26,23 +25,13 @@ namespace Balloon
             spriteBatch = new SpriteBatch(GraphicsDevice);
             balloon = Content.Load<Texture2D>("spr_lives");
             background = Content.Load<Texture2D>("spr_background");
-            balloonOriginOffset = new Vector2(balloon.Width/2, balloon.Height/2); //sets origin centre of sprite
+            balloonOrigin = new Vector2(balloon.Width / 2, balloon.Height); //sets origin bottom centre of sprite
         }
 
         protected override void Update(GameTime gameTime)
         {
             QuitIfEscape();
             MouseState currentMouseState = Mouse.GetState();
-            /*
-             * subtract the originOffset to draw balloon at the centre of mouse position
-             * using the form of spriteBatch.Draw we've been using until now
-             * */
-            //balloonPosition = new Vector2(currentMouseState.X, currentMouseState.Y) - balloonOriginOffset;
-            
-            /*
-             * but the book keeps the original position code and uses an overloaded
-             * form of spriteBatch.Draw which takes account of the sprite origin
-             */
             balloonPosition = new Vector2(currentMouseState.X, currentMouseState.Y);
         }
 
@@ -51,13 +40,12 @@ namespace Balloon
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
-            spriteBatch.Draw(balloon, balloonPosition, null, Color.White, 0.0f, balloonOriginOffset, 1.0f, SpriteEffects.None, 0);
+            spriteBatch.Draw(balloon, balloonPosition, null, Color.White, 0.0f, balloonOrigin, 1.0f, SpriteEffects.None, 0);
             spriteBatch.End();
         }
 
         private void QuitIfEscape()
         {
-
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
