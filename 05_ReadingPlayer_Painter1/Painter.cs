@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
 
 namespace Painter
 {
@@ -18,7 +17,7 @@ namespace Painter
 
         public Painter()
         {
-            Content.RootDirectory = "Content";
+            this.Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
             this.IsMouseVisible = true;
         }
@@ -35,19 +34,30 @@ namespace Painter
 
         protected override void Update(GameTime gameTime)
         {
+            QuitIfEscape();
             MouseState mouse = Mouse.GetState();
             double opposite = mouse.Y - barrelPosition.Y;
             double adjacent = mouse.X - barrelPosition.X;
-            angle = (float)Math.Atan2(opposite, adjacent);
+            //angle = (float)Math.Atan2(opposite, adjacent);
+            angle = (float)Math.Atan(opposite / adjacent);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
+
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
             spriteBatch.Draw(cannonBarrel, barrelPosition, null, Color.White, angle, barrelOrigin, 1.0f, SpriteEffects.None, 0);
             spriteBatch.End();
+        }
+
+        private void QuitIfEscape()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
         }
     }
 }
