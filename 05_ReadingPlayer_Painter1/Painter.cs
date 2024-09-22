@@ -10,14 +10,15 @@ namespace Painter
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D background, cannonBarrel;
-        Vector2 barrelPosition, barrelOrigin;
+        Texture2D background, cannonBarrel, balloon;
+        Vector2 barrelPosition, barrelOrigin, balloonPosition, balloonOrigin;
+        ButtonState left;
+        Color backgroundColor;
         float angle;
-
 
         public Painter()
         {
-            this.Content.RootDirectory = "Content";
+            this.Content.RootDirectory = "Content"; //Load the game assets from here
             graphics = new GraphicsDeviceManager(this);
             this.IsMouseVisible = true;
         }
@@ -26,29 +27,47 @@ namespace Painter
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             background = Content.Load<Texture2D>("spr_background");
+            balloon = Content.Load<Texture2D>("spr_lives");
             cannonBarrel = Content.Load<Texture2D>("spr_cannon_barrel");
 
             barrelPosition = new Vector2(72, 405);
             barrelOrigin = new Vector2(cannonBarrel.Height, cannonBarrel.Height) / 2;
+            balloonOrigin = new Vector2(balloon.Width, balloon.Height) / 2;
+            backgroundColor = Color.White;
         }
 
         protected override void Update(GameTime gameTime)
         {
             QuitIfEscape();
             MouseState mouse = Mouse.GetState();
-            double opposite = mouse.Y - barrelPosition.Y;
-            double adjacent = mouse.X - barrelPosition.X;
-            //angle = (float)Math.Atan2(opposite, adjacent);
-            angle = (float)Math.Atan(opposite / adjacent);
+            if (mouse.LeftButton == ButtonState.Pressed)
+            {
+                double opposite = mouse.Y - barrelPosition.Y;
+                double adjacent = mouse.X - barrelPosition.X;
+                angle = (float)Math.Atan2(opposite, adjacent);
+            }
+            else
+            {
+                angle = 0f;
+            }
+            balloonPosition = new Vector2(mouse.X, mouse.Y);
+            if(mouse.RightButton == ButtonState.Pressed)
+            {
+                backgroundColor = Color.CornflowerBlue;
+            }
+            else
+            {
+                backgroundColor = Color.White;
+            }
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(backgroundColor);
             spriteBatch.Begin();
-
-            spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            spriteBatch.Draw(background, Vector2.Zero, backgroundColor);
             spriteBatch.Draw(cannonBarrel, barrelPosition, null, Color.White, angle, barrelOrigin, 1.0f, SpriteEffects.None, 0);
+            spriteBatch.Draw(balloon, balloonPosition, null, Color.White, 0.0f, balloonOrigin, 1.0f, SpriteEffects.None, 0);
             spriteBatch.End();
         }
 
