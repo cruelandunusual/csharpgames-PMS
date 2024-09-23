@@ -15,6 +15,7 @@ namespace Painter
         ButtonState left;
         Color backgroundColor;
         float angle;
+        const float ZERO = 0f;
 
         public Painter()
         {
@@ -48,7 +49,7 @@ namespace Painter
             }
             else
             {
-                angle = 0f;
+                angle = ZERO;
             }
             balloonPosition = new Vector2(mouse.X, mouse.Y);
             if(mouse.RightButton == ButtonState.Pressed)

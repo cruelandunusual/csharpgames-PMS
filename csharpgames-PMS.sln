@@ -15,9 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11_FinishingGame", "11_Fini
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ReadingPlayer_Balloon1", "05_ReadingPlayer_Balloon1\05_ReadingPlayer_Balloon1.csproj", "{EBA9E013-17A5-4F14-8E3A-E0C377879E46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_ReadingPlayer_Balloon2", "05_ReadingPlayer_Balloon2\05_ReadingPlayer_Balloon2.csproj", "{CD18657D-A601-478C-A952-D8ED96F74E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ReadingPlayer_Balloon2", "05_ReadingPlayer_Balloon2\05_ReadingPlayer_Balloon2.csproj", "{CD18657D-A601-478C-A952-D8ED96F74E6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_ReadingPlayer_Painter1", "05_ReadingPlayer_Painter1\05_ReadingPlayer_Painter1.csproj", "{D166147F-6F45-4264-80A1-E12F0535EEBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ReadingPlayer_Painter1", "05_ReadingPlayer_Painter1\05_ReadingPlayer_Painter1.csproj", "{D166147F-6F45-4264-80A1-E12F0535EEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_ReactingInput_Painter1c", "06_ReactingInput_Painter1c\06_ReactingInput_Painter1c.csproj", "{A5F9F923-72BF-4884-9905-3B07E7359C75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_ReactingInput_Painter2", "06_ReactingInput_Painter2\06_ReactingInput_Painter2.csproj", "{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{D166147F-6F45-4264-80A1-E12F0535EEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D166147F-6F45-4264-80A1-E12F0535EEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D166147F-6F45-4264-80A1-E12F0535EEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5F9F923-72BF-4884-9905-3B07E7359C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5F9F923-72BF-4884-9905-3B07E7359C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5F9F923-72BF-4884-9905-3B07E7359C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5F9F923-72BF-4884-9905-3B07E7359C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
