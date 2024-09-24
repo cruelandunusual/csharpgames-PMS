@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ReadingPlayer_Balloon2",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ReadingPlayer_Painter1", "05_ReadingPlayer_Painter1\05_ReadingPlayer_Painter1.csproj", "{D166147F-6F45-4264-80A1-E12F0535EEBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_ReactingInput_Painter1c", "06_ReactingInput_Painter1c\06_ReactingInput_Painter1c.csproj", "{A5F9F923-72BF-4884-9905-3B07E7359C75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_ReactingInput_Painter1c", "06_ReactingInput_Painter1c\06_ReactingInput_Painter1c.csproj", "{A5F9F923-72BF-4884-9905-3B07E7359C75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_ReactingInput_Painter2", "06_ReactingInput_Painter2\06_ReactingInput_Painter2.csproj", "{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_ReactingInput_Painter2", "06_ReactingInput_Painter2\06_ReactingInput_Painter2.csproj", "{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_BasicGameObjects_Painter3", "07_BasicGameObjects_Painter3\07_BasicGameObjects_Painter3.csproj", "{C5E09221-7A4E-4E80-B540-256C4A83053A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00FB69C0-6875-4DFD-B6FA-196DCAC7E5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E09221-7A4E-4E80-B540-256C4A83053A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E09221-7A4E-4E80-B540-256C4A83053A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E09221-7A4E-4E80-B540-256C4A83053A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E09221-7A4E-4E80-B540-256C4A83053A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
