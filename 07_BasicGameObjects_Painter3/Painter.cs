@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+//using System.Drawing;
 
 namespace Painter
 {
-    class Painter2 : Game
+    class Painter : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -16,7 +17,7 @@ namespace Painter
         MouseState currentMouseState, previousMouseState;
         KeyboardState currentKeyboardState, previousKeyboardState;
 
-        public Painter2()
+        public Painter()
         {
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
@@ -37,6 +38,39 @@ namespace Painter
             previousKeyboardState = currentKeyboardState;
             currentMouseState = Mouse.GetState();
             currentKeyboardState = Keyboard.GetState();
+            /*
+             * colour sequence = Blue-->Red-->Green (reversed if pressing left)
+             */
+            if (currentKeyboardState.IsKeyDown(Keys.Right) && previousKeyboardState.IsKeyUp(Keys.Right))
+            {
+                if (cannon.Color == Color.Blue)
+                {
+                    cannon.Color = Color.Red;
+                }
+                else if (cannon.Color == Color.Red)
+                {
+                    cannon.Color = Color.Green;
+                }
+                else
+                {
+                    cannon.Color = Color.Blue;
+                }
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.Left) && previousKeyboardState.IsKeyUp(Keys.Left))
+            {
+                if (cannon.Color == Color.Blue)
+                {
+                    cannon.Color = Color.Green;
+                }
+                else if (cannon.Color == Color.Green)
+                {
+                    cannon.Color = Color.Red;
+                }
+                else
+                {
+                    cannon.Color = Color.Blue;
+                }
+            }
 
             if (currentKeyboardState.IsKeyDown(Keys.R) && previousKeyboardState.IsKeyUp(Keys.R)) // if R pressed and not pressed in previous game loop
             {

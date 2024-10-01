@@ -6,7 +6,7 @@ namespace Painter
 {
     class Cannon : SpriteObject
     {
-        Texture2D cannonBarrel, colorRed, colorGreen, colorBlue;
+        Texture2D cannonBarrel, colorRed, colorGreen, colorBlue, currentColor;
         Vector2 position, barrelOrigin, colorOrigin;
         Color color;
         float angle;
@@ -17,6 +17,7 @@ namespace Painter
             colorRed = Content.Load<Texture2D>("spr_cannon_red");
             colorGreen = Content.Load<Texture2D>("spr_cannon_green");
             colorBlue = Content.Load<Texture2D>("spr_cannon_blue");
+            currentColor = colorBlue; // this is never used
             color = Color.Blue;
             barrelOrigin = new Vector2(cannonBarrel.Height, cannonBarrel.Height) / 2;
             colorOrigin = new Vector2(colorRed.Width, colorRed.Height) / 2;
@@ -25,7 +26,10 @@ namespace Painter
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            
             spriteBatch.Draw(cannonBarrel, position, null, Color.White, angle, barrelOrigin, 1f, SpriteEffects.None, 0);
+            spriteBatch.Draw(currentColor, position, null, Color.White, 0f, colorOrigin, 1.0f, SpriteEffects.None, 0);
+            /*
             if (color == Color.Red)
             {
                 spriteBatch.Draw(colorRed, position, null, Color.White, 0f, colorOrigin, 1.0f, SpriteEffects.None, 0);
@@ -38,10 +42,12 @@ namespace Painter
             {
                 spriteBatch.Draw(colorBlue, position, null, Color.White, 0f, colorOrigin, 1.0f, SpriteEffects.None, 0);
             }
+            */
         }
 
         public void Reset()
         {
+            currentColor = colorBlue;
             color = Color.Blue;
             angle = 0.0f;
         }
@@ -66,9 +72,25 @@ namespace Painter
                 {
                     return;
                 }
+                if (value == Color.Red)
+                {
+                    currentColor = colorRed;
+                }
+                else if (value == Color.Green)
+                {
+                    currentColor = colorGreen;
+                }
+                else
+                {
+                    currentColor = colorBlue;
+                }
                 color = value;
+                
             }
         }
+
+        
+
     }
 
 }

@@ -1,3 +1,3 @@
 ﻿
-using var game = new Painter.Painter2();
+using var game = new Painter.Painter();
 game.Run();
