@@ -41,7 +41,7 @@ namespace Painter
             /*
              * colour sequence = Blue-->Red-->Green (reversed if pressing left)
              */
-            if (currentKeyboardState.IsKeyDown(Keys.Right) && previousKeyboardState.IsKeyUp(Keys.Right))
+            if (currentKeyboardState.IsKeyDown(Keys.Right) && previousKeyboardState.IsKeyUp(Keys.Right)) // if Right pressed and not pressed in previous game loop
             {
                 if (cannon.Color == Color.Blue)
                 {
