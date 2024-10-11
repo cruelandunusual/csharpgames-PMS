@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-//using System.Drawing;
+using System.Diagnostics;
 
 namespace Painter
 {
@@ -22,6 +22,14 @@ namespace Painter
             Content.RootDirectory = "Content";
             graphics = new GraphicsDeviceManager(this);
             IsMouseVisible = true;
+        }
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
+            graphics.ApplyChanges();
         }
 
         protected override void LoadContent()
@@ -89,6 +97,8 @@ namespace Painter
             double adjacent = currentMouseState.X - cannon.Position.X;
             cannon.Angle = (float)Math.Atan2(opposite, adjacent);
         }
+
+        public SpriteBatch SpriteBatch => spriteBatch;
 
         protected override void Update(GameTime gameTime)
         {

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System.Windows.Markup;
+using System.Diagnostics;
 
 namespace Painter
 {
@@ -52,15 +54,18 @@ namespace Painter
             angle = 0.0f;
         }
 
-        public Vector2 Position
-        {
-            get { return position; }
-        }
+        public Vector2 CannonPosition => position;
 
         public float Angle
         {
             get { return angle; }
-            set { angle = value; }
+            set {
+                if (value < 0.0f || value > MathHelper.TwoPi)
+                {
+                    return;
+                }
+                angle = value;
+            }
         }
 
         public Color Color
@@ -89,7 +94,34 @@ namespace Painter
             }
         }
 
+        public Vector2 Position => position;
         
+
+        /*
+         * the book suggested writing this Property for the CannonBarrel,
+         * but it's not useful and not safe code. There's no checking
+         * going on in the setter and getting the sprite is useless
+         * (in this game, anyway)
+         * Perhaps the author wants us to think about the limitations of Properties...?
+         */
+        public Texture2D CannonBarrel
+        { 
+            get { return cannonBarrel; }
+
+            set
+            {
+                cannonBarrel = value; 
+            }
+        }
+
+        public float Bottom
+        {
+            //add the origin (i.e. half the barrel height)
+            //to the position the barrel is drawn at.
+            get { return position.Y + barrelOrigin.Y; }
+        }
+
+
 
     }
 
