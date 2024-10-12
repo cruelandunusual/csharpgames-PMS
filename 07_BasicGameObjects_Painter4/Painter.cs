@@ -28,7 +28,7 @@ namespace Painter
 
         protected override void Update(GameTime gameTime)
         {
-            inputHelper.Update();
+            inputHelper.Update(); //update input before anything else
             gameWorld.QuitIfEscape(inputHelper, this);
             gameWorld.HandleInput(inputHelper);
             gameWorld.Update(gameTime);

@@ -10,8 +10,8 @@ namespace Painter
 
         public void Update()
         {
-            previousMouseState = currentMouseState;
-            previousKeyboardState = currentKeyboardState;
+            previousMouseState = currentMouseState; //save the currentMouseState before updating it
+            previousKeyboardState = currentKeyboardState; //ditto for keyboard
             currentMouseState = Mouse.GetState();
             currentKeyboardState = Keyboard.GetState();
         }

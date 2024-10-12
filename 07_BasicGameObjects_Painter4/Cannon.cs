@@ -30,20 +30,57 @@ namespace Painter
         {
             if (inputHelper.KeyPressed(Keys.R))
             {
-                Color = Color.Red;
+                MyColor = Color.Red;
             }
             else if (inputHelper.KeyPressed(Keys.G))
             {
-                Color = Color.Green;
+                MyColor = Color.Green;
             }
             else if (inputHelper.KeyPressed(Keys.B))
             {
-                Color = Color.Blue;
+                MyColor = Color.Blue;
+            }
+
+            if (inputHelper.KeyPressed(Keys.Right)) //sequence is Blue-->Red-->Green-->Blue
+            {
+                if (color == Color.Blue)
+                {
+                    MyColor = Color.Red;
+                }
+                else if (color == Color.Red)
+                {
+                    MyColor = Color.Green;
+                }
+                else
+                {
+                    MyColor = Color.Blue;
+                }
+            }
+            else if (inputHelper.KeyPressed(Keys.Left)) //sequence is Blue-->Green-->Red-->Blue
+            {
+                if (color == Color.Blue)
+                {
+                    MyColor = Color.Green;
+                }
+                else if (color == Color.Green)
+                {
+                    MyColor = Color.Red;
+                }
+                else
+                {
+                    MyColor = Color.Blue;
+                }
             }
 
             double opposite = inputHelper.MousePosition.Y - position.Y;
             double adjacent = inputHelper.MousePosition.X - position.X;
             angle = (float)Math.Atan2(opposite, adjacent);
+
+            if (inputHelper.MouseLeftButtonPressed())
+            {
+                //fire the cannon here
+            }
+
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -69,7 +106,7 @@ namespace Painter
             angle = 0.0f;
         }
 
-        public Color Color
+        public Color MyColor
         {
             get { return color; }
             set
