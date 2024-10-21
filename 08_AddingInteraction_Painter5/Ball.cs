@@ -56,6 +56,7 @@ namespace Painter
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            
             if (color == Color.Red)
             {
                 spriteBatch.Draw(colorRed, position, Color.White);
@@ -68,6 +69,7 @@ namespace Painter
             {
                 spriteBatch.Draw(colorBlue, position, Color.White);
             }
+            
         }
 
         public void Reset()
@@ -88,7 +90,7 @@ namespace Painter
             get { return position; }
         }
 
-        public Color Color
+        public Color MyColor
         {
             get { return color; }
             set

@@ -99,7 +99,7 @@ namespace Painter
 
         /*
          * the book suggested writing this Property for the CannonBarrel,
-         * but it's not useful and not safe code. There's no checking
+         * I did it but it's not useful and not safe code. There's no checking
          * going on in the setter and getting the sprite is useless
          * (in this game, anyway)
          * Perhaps the author wants us to think about the limitations of Properties...?
