@@ -30,7 +30,8 @@ namespace Painter
             if (inputHelper.MouseLeftButtonPressed() && !shooting)
             {
                 shooting = true;
-                velocity = (inputHelper.MousePosition - position) * 1.2f;
+                //velocity = (inputHelper.MousePosition - position) * 1.2f;
+                velocity = (inputHelper.MousePosition - position); // why not just have this, and deal with different velocity settings in Update?
                 //Debug.WriteLine("mouse = " + inputHelper.MousePosition + " position = " + position + " velocity = " + velocity);               
             }
         }
