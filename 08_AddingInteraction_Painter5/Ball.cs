@@ -74,7 +74,7 @@ namespace Painter
 
         public void Reset()
         {
-            position = initialPosition;
+            position = Painter.GameWorld.Cannon.BallPosition - Center;
             velocity = Vector2.Zero;
             shooting = false;
             color = Color.Blue;
