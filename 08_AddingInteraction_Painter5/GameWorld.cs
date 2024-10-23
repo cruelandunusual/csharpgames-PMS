@@ -35,8 +35,8 @@ namespace Painter
         {
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.White);
-            ball.Draw(gameTime, spriteBatch);//we draw the ball before the cannon so it's hidden when not being fired
             cannon.Draw(gameTime, spriteBatch);
+            ball.Draw(gameTime, spriteBatch);//we draw the ball before the cannon so it's hidden when not being fired
             spriteBatch.End();
         }
 
@@ -54,6 +54,7 @@ namespace Painter
         {
             return position.X < 0 || position.X > Painter.Screen.X || position.Y > Painter.Screen.Y;
         }
+
         public void QuitIfEscape(InputHelper inputHelper, Painter painterGame)
         {
             if (inputHelper.KeyPressed(Keys.Escape))

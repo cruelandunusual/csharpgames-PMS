@@ -30,9 +30,7 @@ namespace Painter
             if (inputHelper.MouseLeftButtonPressed() && !shooting)
             {
                 shooting = true;
-                //velocity = (inputHelper.MousePosition - position) * 1.2f;
-                velocity = (inputHelper.MousePosition - position); // why not just have this, and deal with different velocity settings in Update?
-                //Debug.WriteLine("mouse = " + inputHelper.MousePosition + " position = " + position + " velocity = " + velocity);               
+                velocity = (inputHelper.MousePosition - position) * 1.2f; // set an initial velocity to be manipulated per call to Update        
             }
         }
 
@@ -57,7 +55,7 @@ namespace Painter
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            
+
             if (color == Color.Red)
             {
                 spriteBatch.Draw(colorRed, position, Color.White);
@@ -70,7 +68,7 @@ namespace Painter
             {
                 spriteBatch.Draw(colorBlue, position, Color.White);
             }
-            
+
         }
 
         public void Reset()
@@ -103,6 +101,10 @@ namespace Painter
                 color = value;
             }
         }
-    }
 
+        public Texture2D myTexture
+        {
+            get { return colorBlue; }
+        }
+    }
 }
