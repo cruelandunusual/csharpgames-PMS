@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Painter
 {
+
     class GameWorld
     {
         Texture2D background;
@@ -17,7 +18,7 @@ namespace Painter
             background = Content.Load<Texture2D>("spr_background");
             cannon = new Cannon(Content);
             ball = new Ball(Content);
-            can1 = new PaintCan(Content, 450.0f, Color.Red); // the float value is an initial xPosition
+            can1 = new PaintCan(Content, 450.0f, Color.Red);
             can2 = new PaintCan(Content, 575.0f, Color.Green);
             can3 = new PaintCan(Content, 700.0f, Color.Blue);
         }
@@ -70,6 +71,7 @@ namespace Painter
                 painterGame.Exit();
             }
         }
+
     }
 
 }

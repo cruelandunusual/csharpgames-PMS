@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 
@@ -13,9 +14,9 @@ namespace Painter
 
         public PaintCan(ContentManager Content, float positionOffset, Color targetcol)
         {
-            this.colorRed = Content.Load<Texture2D>("spr_can_red");
-            this.colorGreen = Content.Load<Texture2D>("spr_can_green");
-            this.colorBlue = Content.Load<Texture2D>("spr_can_blue");
+            colorRed = Content.Load<Texture2D>("spr_can_red");
+            colorGreen = Content.Load<Texture2D>("spr_can_green");
+            colorBlue = Content.Load<Texture2D>("spr_can_blue");
             targetcolor = targetcol;
             minVelocity = 30;
             color = Color.Blue;
@@ -25,12 +26,19 @@ namespace Painter
 
         public void Update(GameTime gameTime)
         {
-            if (velocity.Y == 0.0f && Painter.Random.NextDouble() < 0.01) // only once in every hundred random numbers will this if-statement be true
+            if (velocity.Y == 0.0f && Painter.Random.NextDouble() < 0.01)
             {
                 velocity = CalculateRandomVelocity();
                 color = CalculateRandomColor();
             }
             position += velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Vector2 distanceVector = (Painter.GameWorld.Ball.Position + Painter.GameWorld.Ball.Center) - (position + Center);
+            if (Math.Abs(distanceVector.X) < Center.X && Math.Abs(distanceVector.Y) < Center.Y)
+            {
+                Color = Painter.GameWorld.Ball.Color;
+                Painter.GameWorld.Ball.Reset();
+            }
 
             if (Painter.GameWorld.IsOutsideWorld(position))
             {
@@ -96,5 +104,4 @@ namespace Painter
             get { return new Vector2(colorRed.Width, colorRed.Height) / 2; }
         }
     }
-
 }
