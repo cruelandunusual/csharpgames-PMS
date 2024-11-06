@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_AddingInteraction_Painte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_AddingInteraction_Painter7", "08_AddingInteraction_Painter7\08_AddingInteraction_Painter7.csproj", "{2B31980E-153B-40CF-A221-90F7B835DA85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_LimitedLives_Painter8", "09_LimitedLives_Painter8\09_LimitedLives_Painter8.csproj", "{8BC4BB57-4B95-4B33-B66F-54B072736234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{2B31980E-153B-40CF-A221-90F7B835DA85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B31980E-153B-40CF-A221-90F7B835DA85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B31980E-153B-40CF-A221-90F7B835DA85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC4BB57-4B95-4B33-B66F-54B072736234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC4BB57-4B95-4B33-B66F-54B072736234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC4BB57-4B95-4B33-B66F-54B072736234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC4BB57-4B95-4B33-B66F-54B072736234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
