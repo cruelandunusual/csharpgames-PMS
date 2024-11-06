@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_AddingInteraction_Painte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_AddingInteraction_Painter6", "08_AddingInteraction_Painter6\08_AddingInteraction_Painter6.csproj", "{B1971787-72C1-4E1E-9320-170CD6ED8E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_AddingInteraction_Painter7", "08_AddingInteraction_Painter7\08_AddingInteraction_Painter7.csproj", "{2B31980E-153B-40CF-A221-90F7B835DA85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_AddingInteraction_Painter7", "08_AddingInteraction_Painter7\08_AddingInteraction_Painter7.csproj", "{2B31980E-153B-40CF-A221-90F7B835DA85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
