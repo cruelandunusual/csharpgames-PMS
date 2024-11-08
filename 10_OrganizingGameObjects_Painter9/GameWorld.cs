@@ -5,27 +5,29 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Painter
 {
-
     class GameWorld
     {
-        Texture2D background, gameover;
-        Ball ball;
-        PaintCan can1, can2, can3;
-        Cannon cannon;
-        int lives;
-        Texture2D livesSprite;
+        protected Texture2D background, gameOver;
+
+        protected Ball ball;
+        protected PaintCan can1, can2, can3;
+        protected Cannon cannon;
+        protected int lives;
+        protected Texture2D livesSprite;
 
         public GameWorld(ContentManager Content)
         {
-            gameover = Content.Load<Texture2D>("spr_gameover");
+            gameOver = Content.Load<Texture2D>("spr_gameover");
             livesSprite = Content.Load<Texture2D>("spr_lives");
+
             background = Content.Load<Texture2D>("spr_background");
             cannon = new Cannon(Content);
             ball = new Ball(Content);
-            can1 = new PaintCan(Content, 450.0f, Color.Red); //left lane
-            can2 = new PaintCan(Content, 575.0f, Color.Green); //middle lane
-            can3 = new PaintCan(Content, 700.0f, Color.Blue); //right lane
-            lives = 2;
+            can1 = new PaintCan(Content, 450.0f, Color.Red);
+            can2 = new PaintCan(Content, 575.0f, Color.Green);
+            can3 = new PaintCan(Content, 700.0f, Color.Blue);
+
+            lives = 5;
         }
 
         public void HandleInput(InputHelper inputHelper)
@@ -35,9 +37,9 @@ namespace Painter
                 cannon.HandleInput(inputHelper);
                 ball.HandleInput(inputHelper);
             }
-            else if (inputHelper.KeyPressed(Keys.Space)) 
+            else if (inputHelper.KeyPressed(Keys.Space))
             {
-                Reset();    
+                Reset();
             }
         }
 
@@ -45,7 +47,7 @@ namespace Painter
         {
             if (lives <= 0)
             {
-                return; 
+                return;
             }
             ball.Update(gameTime);
             can1.Update(gameTime);
@@ -64,11 +66,11 @@ namespace Painter
             can3.Draw(gameTime, spriteBatch);
             for (int i = 0; i < lives; i++)
             {
-                spriteBatch.Draw(livesSprite, new Vector2(i * livesSprite.Width + 15, 20), Color.White);
+                spriteBatch.Draw(livesSprite, new Vector2(i * livesSprite.Width + 15, 60), Color.White);
             }
             if (lives <= 0)
             {
-                spriteBatch.Draw(gameover, new Vector2(Painter.Screen.X - gameover.Width, Painter.Screen.Y - gameover.Height) / 2, Color.White);
+                spriteBatch.Draw(gameOver, new Vector2(Painter.Screen.X - gameOver.Width, Painter.Screen.Y - gameOver.Height) / 2, Color.White);
             }
             spriteBatch.End();
         }
@@ -96,15 +98,15 @@ namespace Painter
             get { return cannon; }
         }
 
+        public bool IsOutsideWorld(Vector2 position)
+        {
+            return position.X < 0 || position.X > Painter.Screen.X || position.Y > Painter.Screen.Y;
+        }
+
         public int Lives
         {
             get { return lives; }
             set { lives = value; }
-        }
-
-        public bool IsOutsideWorld(Vector2 position)
-        {
-            return position.X < 0 || position.X > Painter.Screen.X || position.Y > Painter.Screen.Y;
         }
 
         public void QuitIfEscape(InputHelper inputHelper, Painter painterGame)
@@ -115,5 +117,4 @@ namespace Painter
             }
         }
     }
-
 }
