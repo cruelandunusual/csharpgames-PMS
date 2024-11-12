@@ -12,8 +12,10 @@ namespace Painter
         protected Vector2 barrelOrigin;
         protected float barrelRotation;
 
-        public Cannon(ContentManager Content) : base(Content.Load<Texture2D>("spr_cannon_red"),
-            Content.Load<Texture2D>("spr_cannon_green"), Content.Load<Texture2D>("spr_cannon_blue"))
+        public Cannon(ContentManager Content) :
+            base(Content.Load<Texture2D>("spr_cannon_red"),
+                Content.Load<Texture2D>("spr_cannon_green"),
+                Content.Load<Texture2D>("spr_cannon_blue"))
         {
             cannonBarrel = Content.Load<Texture2D>("spr_cannon_barrel");
             position = new Vector2(72, 405);

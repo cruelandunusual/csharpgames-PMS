@@ -5,7 +5,7 @@ namespace Painter
 {
     class ThreeColorGameObject
     {
-        protected Texture2D colorRed, colorGreen, colorBlue;
+        protected Texture2D colorRed, colorGreen, colorBlue, currentColor;
         protected Vector2 position, origin, velocity;
         protected float rotation;
         protected Color color;
@@ -15,6 +15,7 @@ namespace Painter
             this.colorRed = colorRed;
             this.colorGreen = colorGreen;
             this.colorBlue = colorBlue;
+            this.currentColor = colorBlue;
             color = Color.Blue;
             position = Vector2.Zero;
             velocity = Vector2.Zero;
@@ -43,6 +44,7 @@ namespace Painter
             {
                 spriteBatch.Draw(colorBlue, position, null, Color.White, rotation, origin, 1.0f, SpriteEffects.None, 0);
             }
+            
         }
 
         public virtual void Reset()
@@ -72,5 +74,6 @@ namespace Painter
                 color = value;
             }
         }
+
     }
 }

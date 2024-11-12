@@ -48,6 +48,22 @@ namespace Painter
             base.Update(gameTime);
         }
 
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            if (color == Color.Red)
+            {
+                spriteBatch.Draw(colorRed, position, null, Color.White, (float)Math.Sin(position.Y / 50.0) * 0.05f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+            }
+            else if (color == Color.Green)
+            {
+                spriteBatch.Draw(colorGreen, position, null, Color.White, (float)Math.Sin(position.Y / 50.0) * 0.05f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+            }
+            else
+            {
+                spriteBatch.Draw(colorBlue, position, null, Color.White, (float)Math.Sin(position.Y / 50.0) * 0.05f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+            }
+        }
+
         public override void Reset()
         {
             base.Reset();
@@ -81,6 +97,7 @@ namespace Painter
                 return Color.Blue;
             }
         }
+
     }
 
 }
