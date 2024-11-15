@@ -53,7 +53,7 @@ namespace Painter
                 Reset();
             }
             minVelocity += 0.001f;
-            rotation = (float)Math.Sin(position.Y / 50) * 0.05f;
+            rotation = (float)Math.Sin(position.Y / 50) * 0.5f;
             base.Update(gameTime);
         }
 
