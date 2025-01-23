@@ -68,11 +68,11 @@ namespace Snow
             int loopCount = 0;
             for (int i = snowflakes.Count-1; i >= 0; i--)
             {
-                if (i % 2 == 0)
-                {
+                //if (i % 2 == 0)
+                //{
                     snowflakes[i].Draw(gameTime, spriteBatch);
                     loopCount++;
-                }
+                //}
             }
             Debug.WriteLine("loopCount = " + loopCount);
             spriteBatch.End();
